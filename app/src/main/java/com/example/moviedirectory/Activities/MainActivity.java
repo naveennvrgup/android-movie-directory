@@ -1,7 +1,8 @@
-package com.example.moviedirectory;
+package com.example.moviedirectory.Activities;
 
 import android.os.Bundle;
 
+import com.example.moviedirectory.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
