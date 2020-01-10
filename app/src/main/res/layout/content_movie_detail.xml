@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Activities.MovieDetailActivity"
+    tools:showIn="@layout/activity_movie_detail">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardviewDets"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="15dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/movieDetailImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/movieDetailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/movieDetailImage"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/movieDetailRelease"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/movieDetailTitle"
+                android:layout_toRightOf="@+id/movieDetailImage"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/movieDetailCat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/movieDetailRelease"
+                android:layout_toRightOf="@+id/movieDetailImage"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/movieDetailRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/movieDetailCat"
+                android:layout_toRightOf="@+id/movieDetailImage"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/movieDetailRuntime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/movieDetailRating"
+                android:layout_toRightOf="@+id/movieDetailImage"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/movieDetailDirector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/movieDetailRuntime"
+                android:layout_toRightOf="@+id/movieDetailImage"
+                android:text="TextView" />
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardviewDets">
+
+        <TextView
+            android:id="@+id/movieDetailActors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Actors: " />
+
+        <TextView
+            android:id="@+id/movieDetailWriters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movieDetailActors"
+            android:text="Writers: " />
+
+        <TextView
+            android:id="@+id/movieDetailPlot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movieDetailWriters"
+            android:text="Plot: " />
+
+        <TextView
+            android:id="@+id/movieDetailBoxOffice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/movieDetailPlot"
+            android:text="BoxOffice: " />
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
