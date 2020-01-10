@@ -4,5 +4,4 @@
 1. Shows the Details of the selected movies.
 
 ## Screenshots
-
-<img src="Screenshots/search-dialog.png" align="center" width=200> <img src="Screenshots/movie-list.png" "center" width=200> <img src="Screenshots/movie-detail.png" "center" width=200>
+![](Screenshots/search-dialog.png) ![](Screenshots/movie-list.png) ![](Screenshots/movie-detail.png)
