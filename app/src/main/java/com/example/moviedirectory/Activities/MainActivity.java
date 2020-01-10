@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         getMovies("fast and furious");
+
+        movieRecyclerViewAdapter=new MovieRecyclerViewAdapter(this,movieList);
+        recyclerView.setAdapter(movieRecyclerViewAdapter);
+        movieRecyclerViewAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -88,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public List<Movie> getMovies(String searchTerm){
-        movieList.clear();
 
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(
                 Request.Method.GET,
@@ -112,7 +115,11 @@ public class MainActivity extends AppCompatActivity {
 
                                 movieList.add(movie);
                                 Log.i("movie: ",movie.toString());
+                                movieRecyclerViewAdapter.notifyDataSetChanged();
                             }
+
+
+
                         }catch (JSONException e){
                             e.printStackTrace();
                         }
