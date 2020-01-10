@@ -10,7 +10,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardviewDets"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,13 +35,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/movieDetailImage"
-                android:text="TextView" />
+                android:text="Movie Title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/movieDetailRelease"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/movieDetailTitle"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
                 android:layout_toRightOf="@+id/movieDetailImage"
                 android:text="TextView" />
 
@@ -84,9 +88,10 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_margin="15dp"
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
@@ -94,30 +99,62 @@
         app:layout_constraintTop_toBottomOf="@+id/cardviewDets">
 
         <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Actors:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Writers: "
+            android:layout_below="@+id/movieDetailActors"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_below="@+id/movieDetailWriters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Plot: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_below="@+id/movieDetailPlot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BoxOffice: "
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/movieDetailActors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/textView15"
             android:text="Actors: " />
 
         <TextView
             android:id="@+id/movieDetailWriters"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/movieDetailActors"
+            android:layout_below="@+id/textView16"
             android:text="Writers: " />
 
         <TextView
             android:id="@+id/movieDetailPlot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/movieDetailWriters"
+            android:layout_below="@+id/textView17"
             android:text="Plot: " />
 
         <TextView
             android:id="@+id/movieDetailBoxOffice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/movieDetailPlot"
+            android:layout_below="@+id/textView18"
             android:text="BoxOffice: " />
 
     </RelativeLayout>

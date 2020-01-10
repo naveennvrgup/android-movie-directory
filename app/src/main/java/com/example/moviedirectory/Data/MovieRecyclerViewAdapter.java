@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.moviedirectory.Activities.MovieDetailActivity;
 import com.example.moviedirectory.Model.Movie;
 import com.example.moviedirectory.R;
 import com.squareup.picasso.Picasso;
@@ -58,7 +59,7 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
         return movieList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView title, year, type;
         ImageView poster;
 
@@ -73,14 +74,12 @@ public class MovieRecyclerViewAdapter extends RecyclerView.Adapter<MovieRecycler
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.i("movie", "clicked");
+                    Movie movie = movieList.get(getAdapterPosition());
+                    Intent intent = new Intent(context, MovieDetailActivity.class);
+                    intent.putExtra("movie",movie);
+                    context.startActivity(intent);
                 }
             });
-        }
-
-        @Override
-        public void onClick(View v) {
-            Log.i("movie", "clicked");
         }
     }
 }

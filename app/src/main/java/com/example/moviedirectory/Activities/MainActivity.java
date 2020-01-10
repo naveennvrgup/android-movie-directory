@@ -28,6 +28,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -86,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
         alertDialog = alertDialogBuilder.create();
         alertDialog.show();
 
+        /*open andorid keyboard*/
+        InputMethodManager inputMethodManager=(InputMethodManager)this.getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,6 +103,10 @@ public class MainActivity extends AppCompatActivity {
                     getMovies(search);
                 }
                 alertDialog.dismiss();
+
+                /*close andorid keyboard*/
+                InputMethodManager inputMethodManager=(InputMethodManager)getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputMethodManager.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY,0);
             }
         });
     }
