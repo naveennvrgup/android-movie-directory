@@ -5,6 +5,6 @@
 
 ## Screenshots
 
-![Search-Dialog]("Screenshots/search-dialog.png")
-![Movies-list]("Screenshots/movie-list.png")
-![Movies-Detail]("Screenshots/movie-detail.png")
+<img src="Screenshots/search-dialog.png" align="center" width=200>
+<img src="Screenshots/movie-list.png" "center" width=200>
+<img src="Screenshots/movie-detail.png" "center" width=200>
