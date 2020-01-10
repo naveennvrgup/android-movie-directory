@@ -1,5 +1,6 @@
 package com.example.moviedirectory.Activities;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.android.volley.Request;
@@ -11,6 +12,8 @@ import com.android.volley.toolbox.Volley;
 import com.example.moviedirectory.Data.MovieRecyclerViewAdapter;
 import com.example.moviedirectory.Model.Movie;
 import com.example.moviedirectory.R;
+import com.example.moviedirectory.Util.Constants;
+import com.example.moviedirectory.Util.Prefs;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -21,9 +24,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,8 +57,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                showInputDialog();
             }
         });
 
@@ -67,6 +72,34 @@ public class MainActivity extends AppCompatActivity {
         movieRecyclerViewAdapter=new MovieRecyclerViewAdapter(this,movieList);
         recyclerView.setAdapter(movieRecyclerViewAdapter);
         movieRecyclerViewAdapter.notifyDataSetChanged();
+    }
+
+    public void showInputDialog(){
+        alertDialogBuilder=new AlertDialog.Builder(this);
+        LayoutInflater inflater= (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.dialog_view,null);
+
+        final EditText searchEditText = view.findViewById(R.id.searchEdit);
+        Button submitButton = view.findViewById(R.id.submitButton);
+
+        alertDialogBuilder.setView(view);
+        alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Prefs prefs=new Prefs(MainActivity.this);
+
+                if(!searchEditText.getText().toString().isEmpty()){
+                    String  search = searchEditText.getText().toString().trim();
+                    prefs.setSearch(search);
+                    movieList.clear();
+                    getMovies(search);
+                }
+                alertDialog.dismiss();
+            }
+        });
     }
 
     @Override
@@ -92,10 +125,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public List<Movie> getMovies(String searchTerm){
+        movieList.clear();
 
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(
                 Request.Method.GET,
-                "http://www.omdbapi.com/?&apikey=ddcb9cbc&s=" + searchTerm,
+                Constants.URL_LEFT + searchTerm + Constants.API_KEY,
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override
