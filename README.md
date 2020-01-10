@@ -5,6 +5,4 @@
 
 ## Screenshots
 
-<img src="Screenshots/search-dialog.png" align="center" width=200>
-<img src="Screenshots/movie-list.png" "center" width=200>
-<img src="Screenshots/movie-detail.png" "center" width=200>
+<img src="Screenshots/search-dialog.png" align="center" width=200> <img src="Screenshots/movie-list.png" "center" width=200> <img src="Screenshots/movie-detail.png" "center" width=200>
